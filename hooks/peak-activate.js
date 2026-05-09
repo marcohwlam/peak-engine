@@ -69,7 +69,9 @@ try {
 }
 
 // Emit as system context (hidden from user, injected by Claude Code)
-let output = 'PEAK ENGINE ACTIVE\n\n' + skillContent.trim();
+// When SKILL.md is loaded it already opens with "PEAK ENGINE ACTIVE" — no prefix needed.
+// Prefix only applies to the inline fallback content.
+let output = skillContent.trim();
 if (memoryContent) {
   output += '\n\n---\n\n## Loaded Memory\n' + memoryContent.trim();
 }
