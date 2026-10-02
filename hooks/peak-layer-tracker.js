@@ -20,16 +20,18 @@ const L3_PATTERNS = [
   /\bsystem design\b/i, /\brefactor (the )?whole\b/i,
 ];
 
-// L2 keywords
+// L2 keywords — design decisions only (architecture, approach, stack, data model).
+// General opinion phrasing ("should i", "what do you think", "recommend") is
+// intentionally excluded so routine choices are not challenged.
 const L2_PATTERNS = [
-  /\bshould i\b/i, /\bshould we\b/i, /\bis this (right|correct|good|better)\b/i,
-  /\bwhich (approach|option|way|method|framework|tool)\b/i,
-  /\bwhat do you think\b/i, /\bwhat('s| is) (your|the best)\b/i,
-  /\bbetter to\b/i, /\bbetter approach\b/i, /\bright way\b/i,
-  /\bthoughts on\b/i, /\byour opinion\b/i, /\brecommend\b/i,
-  /\badvice\b/i, /\bwhat would you\b/i, /\bhow should (i|we)\b/i,
-  /\bis it (worth|a good idea)\b/i, /\bpros and cons\b/i,
-  /\btradeoff\b/i, /\btrade-off\b/i, /\bcompare\b/i,
+  /\bwhich (approach|architecture|pattern|framework|library|database|stack|design)\b/i,
+  /\b(better|best|right) (approach|architecture|pattern|design)\b/i,
+  /\bdesign (decision|choice|tradeoff|trade-off)\b/i,
+  /\b(architecture|architectural) (decision|choice|tradeoff|trade-off)\b/i,
+  /\bpros and cons\b/i, /\btradeoffs?\b/i, /\btrade-offs?\b/i,
+  /\b(monolith|microservices?)\b.*\b(or|vs\.?)\b/i,
+  /\b(sql|nosql|postgres|mongo\w*)\b.*\b(or|vs\.?)\b/i,
+  /\bshould (i|we) (use|adopt|split|separate|migrate to|model|structure)\b/i,
 ];
 
 function classifyPrompt(prompt) {
@@ -43,8 +45,8 @@ function classifyPrompt(prompt) {
 }
 
 const REINFORCEMENT = {
-  l1: 'PEAK L1 ACTIVE: Answer directly. No ceremony.',
-  l2: 'PEAK L2 ACTIVE: Before answering — (1) challenge the premise, (2) check for blind spots (symptom vs root problem?), (3) give concrete second opinion, (4) end with next action. Do NOT skip steps 1-2.',
+  l1: 'PEAK L1 ACTIVE: Answer directly. No ceremony. Do not challenge the premise or add second opinions unless a design decision is at stake.',
+  l2: 'PEAK L2 ACTIVE (design decision): Before answering, (1) challenge the premise, (2) check for blind spots (symptom vs root problem?), (3) give concrete second opinion, (4) end with next action. Do NOT skip steps 1-2.',
   l3: 'PEAK L3 ACTIVE: Invoke superpowers brainstorming skill. Spec must include ASCII art design diagram and data flow diagram before any implementation.',
 };
 

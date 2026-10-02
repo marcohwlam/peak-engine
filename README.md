@@ -18,8 +18,8 @@ Copies `CLAUDE.md` to `~/.claude/CLAUDE.md` (global, applies to all projects).
 
 | Layer | Trigger | Behavior |
 |-------|---------|----------|
-| L1 | Factual questions, bug fixes | Direct answer |
-| L2 | Intent questions, tradeoffs, "should I" | Challenge premise → blind spot check → second opinion → next action |
+| L1 | Factual questions, bug fixes, routine decisions | Direct answer |
+| L2 | Design decisions only (architecture, data model, framework choice, tradeoffs) | Challenge premise → blind spot check → second opinion → next action |
 | L3 | System design, new builds | Superpowers brainstorming + ASCII diagrams required |
 
 ## Statusline

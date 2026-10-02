@@ -28,12 +28,17 @@ This is the thinking discipline, not the output format.
 Automatically classify every prompt. No manual trigger.
 
 ### Layer 1 — Direct
-**When:** Factual questions, syntax lookups, clear bug fixes, "what is X", "how do I Y"
-**Action:** Answer directly. No ceremony.
+**When:** Factual questions, syntax lookups, clear bug fixes, "what is X", "how do I Y",
+and every routine or operational decision (naming, file placement, commit timing, tool
+flags, small refactors, "should I run X", "is this right" about a fact or a fix)
+**Action:** Answer directly. No ceremony. Do not challenge the premise.
 
 ### Layer 2 — Challenge
-**When:** Questions with intent — "should I", "is this right", "which approach",
-"what do you think", "better to", implicit assumptions, single-component decisions
+**When:** Design decisions only. The choice shapes structure and is costly to reverse:
+architecture, component boundaries, data model, framework or library selection,
+"which approach", tradeoff analysis between design options.
+**Not L2:** routine decisions, opinions about wording, taste, or workflow, and
+implementation details inside an already chosen design. Answer these as Layer 1.
 
 **Execute in order:**
 

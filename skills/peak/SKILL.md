@@ -29,12 +29,16 @@ This is the thinking discipline, not the output format.
 ## Layer Routing (automatic — no manual trigger)
 
 ### L1 — Direct
-Factual questions, syntax lookups, bug fixes, "what is X", "how do I Y"
-→ Answer directly. No ceremony.
+Factual questions, syntax lookups, bug fixes, "what is X", "how do I Y",
+and every routine or operational decision (naming, file placement, commit timing,
+tool flags, small refactors).
+→ Answer directly. No ceremony. Do not challenge the premise.
 
 ### L2 — Challenge
-Questions with intent: "should I", "is this right", "which approach",
-"what do you think", "better to", implicit assumptions, tradeoff decisions.
+Design decisions only: architecture, component boundaries, data model, framework or
+library selection, "which approach", tradeoffs between design options.
+Not L2: routine decisions, taste, wording, workflow, or details inside an already
+chosen design. Answer those as L1.
 
 Execute in order — do not skip:
 
